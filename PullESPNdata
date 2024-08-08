@@ -1,0 +1,17 @@
+install.packages("ffscrapr")
+
+library(ffscrapr)
+library(tidyr)
+library(dplyr)
+
+BOR_ESPN_S2="AEBiUSGKq3rqsOGbPHgV5vCS4izXNos7d6G6qnMuOdyE%2B2LwxoAJDRPz%2F%2BbYpTnw7yiOGJdPj3nKEp6Wj5wvcIO0C3NWbrpr3ZXQMSvV%2BzUvwMUDVG168k9dbNeemfctlAbCnTJj%2Bnyvo5IOaBX4MrjDX98pWzmHpHuT0EtCVtkI7j%2Beqn0uBvHIHv7uUeyDwDKXKdT%2B83xyxSn4h%2FrhnKuOHYwHJlV%2BVAT%2FoJLmua1%2B8ZnKpeT2U0y8GFXXoPCGzV7Tr0X1P32aUEm5kumNj4LCaRP4ej7fAl1Gb2sYjYZaTJGKLgA3Np3HETORJvOkgD8%3D"
+BOR_SWID="B679B263-16E7-477D-B9BA-E0A137A9E1A1"
+
+TMB <- espn_connect(
+  season = 2023,
+  league_id = 29897948,
+  espn_s2 = Sys.getenv("BOR_ESPN_S2"),
+  swid = Sys.getenv("BOR_SWID")
+)
+
+TMB_summary <- ff_league(TMB)
